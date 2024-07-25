@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>File List</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body class="bg-gray-100">
 
@@ -13,10 +18,30 @@
         
         <div class="bg-white shadow-md rounded-lg p-6 mb-4">
             <a href="https://cptest1-spec.github.io/file1.html" class="text-blue-500 text-lg font-semibold hover:underline" target="_blank" rel="noopener noreferrer">Airflow Diagram by Jayson</a>
-            <p class="text-gray-700 mt-2">Explore a sophisticated node diagram created using WebSim AI. This diagram showcases the capabilities of artificial intelligence in generating complex visual representations effortlessly.</p>
+            <p class="text-gray-700 mt-2">
+                Explore a sophisticated node diagram created using WebSim AI. This diagram showcases... 
+                <span id="more" class="hidden"> the capabilities of artificial intelligence in generating complex visual representations effortlessly.</span>
+                <a href="#" id="toggle" class="text-blue-500 hover:underline">Read more</a>
+            </p>
         </div>
         
     </div>
+
+    <script>
+        document.getElementById("toggle").addEventListener("click", function(event) {
+            event.preventDefault();
+            var moreText = document.getElementById("more");
+            var toggleLink = document.getElementById("toggle");
+
+            if (moreText.classList.contains("hidden")) {
+                moreText.classList.remove("hidden");
+                toggleLink.textContent = "Read less";
+            } else {
+                moreText.classList.add("hidden");
+                toggleLink.textContent = "Read more";
+            }
+        });
+    </script>
 
 </body>
 </html>
